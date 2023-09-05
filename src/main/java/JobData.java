@@ -99,17 +99,11 @@ public class JobData {
                 String key = entry.getKey();
                 String aValue = entry.getValue();
                 if (aValue.toLowerCase().contains(value.toLowerCase())) {
-                    if (!all.containsValue(value)) {
-                        all.put(key, value);
+                    if (!jobsearch.contains(all)) {
                         jobsearch.add(all);
                     }
                 }
-
-
             }
-
-            // TODO - implement this method
-
         }
         return jobsearch;
     }
