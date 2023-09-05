@@ -5,10 +5,8 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.lang.String;
 
 /**
  * Created by LaunchCode
@@ -19,6 +17,8 @@ public class JobData {
     private static boolean isDataLoaded = false;
 
     private static ArrayList<HashMap<String, String>> allJobs;
+
+
 
     /**
      * Fetch list of all values from loaded data,
@@ -93,11 +93,26 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+        ArrayList<HashMap<String, String>> jobsearch = new ArrayList<>();
+        for (HashMap<String, String> all : allJobs) {
+            for (Map.Entry<String, String> entry : all.entrySet()) {
+                String key = entry.getKey();
+                String aValue = entry.getValue();
+                if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                    if (!all.containsValue(value)) {
+                        all.put(key, value);
+                        jobsearch.add(all);
+                    }
+                }
 
-        // TODO - implement this method
-        return null;
+
+            }
+
+            // TODO - implement this method
+
+        }
+        return jobsearch;
     }
-
     /**
      * Read in data from a CSV file and store it in a list
      */
