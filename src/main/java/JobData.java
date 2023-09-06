@@ -93,7 +93,7 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-        boolean results = false;
+
         ArrayList<HashMap<String, String>> jobsearch = new ArrayList<>();
         if ((value.isEmpty())){
             System.out.println("No Results");
@@ -104,10 +104,7 @@ public class JobData {
                 for (Map.Entry<String, String> entry : all.entrySet()) {
                     String key = entry.getKey();
                     String aValue = entry.getValue();
-
-
-                        if (aValue.toLowerCase().contains(value.toLowerCase())) {
-                            results = true;
+                        if (aValue.toLowerCase().contains(value.toLowerCase()) || key.toLowerCase().contains(value.toLowerCase())) {
                             if (!jobsearch.contains(all)) {
                                 jobsearch.add(all);
                             }

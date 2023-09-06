@@ -123,7 +123,7 @@ public class TechJobs {
 
         boolean results = false;
         for (HashMap<String, String> someJob : someJobs) {
-                System.out.println();
+//                System.out.println();
                 System.out.println("*****");
                 for (Map.Entry<String, String> entry : someJob.entrySet()) {
                     String key = entry.getKey();
