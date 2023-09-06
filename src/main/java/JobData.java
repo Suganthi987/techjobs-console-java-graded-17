@@ -116,9 +116,9 @@ public class JobData {
             }
 
         }
-         if (!results){
-             System.out.println("No Results");
-         }
+//         if (!results){
+//             System.out.println("No Results");
+//         }
        // System.out.println("No Results");
 
         return jobsearch;
