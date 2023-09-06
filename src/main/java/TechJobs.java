@@ -129,7 +129,9 @@ public class TechJobs {
                     String key = entry.getKey();
                     String value = entry.getValue();
                     System.out.println(key + ": " + value);
-
+                    if((key.isEmpty())||(value.isEmpty())){
+                        System.out.println("No Results");
+                    }
                 }
                 System.out.println("*****");
                 System.out.println();

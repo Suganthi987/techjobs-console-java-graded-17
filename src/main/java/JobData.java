@@ -93,20 +93,37 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+        boolean results = false;
         ArrayList<HashMap<String, String>> jobsearch = new ArrayList<>();
-        for (HashMap<String, String> all : allJobs) {
-            for (Map.Entry<String, String> entry : all.entrySet()) {
-                String key = entry.getKey();
-                String aValue = entry.getValue();
-                if (aValue.toLowerCase().contains(value.toLowerCase())) {
-                    if (!jobsearch.contains(all)) {
-                        jobsearch.add(all);
-                    }
+        if ((value.isEmpty())){
+            System.out.println("No Results");
+        }
+         else {
+
+            for (HashMap<String, String> all : allJobs) {
+                for (Map.Entry<String, String> entry : all.entrySet()) {
+                    String key = entry.getKey();
+                    String aValue = entry.getValue();
+
+
+                        if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                            results = true;
+                            if (!jobsearch.contains(all)) {
+                                jobsearch.add(all);
+                            }
+                        }
                 }
             }
+
         }
+         if (!results){
+             System.out.println("No Results");
+         }
+       // System.out.println("No Results");
+
         return jobsearch;
     }
+
     /**
      * Read in data from a CSV file and store it in a list
      */
